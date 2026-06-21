@@ -43,16 +43,16 @@ export default function About() {
                 </p>
               </div>
 
-              <dl className="mt-6 space-y-5">
+              <dl className="mt-6 space-y-6">
                 {a.highlights.map((h) => (
                   <div
                     key={h.label}
-                    className="flex items-baseline gap-4 border-l-2 border-flame/70 pl-4"
+                    className="border-l-2 border-flame/70 pl-4 py-1"
                   >
-                    <dt className="min-w-[5.5rem] text-xl font-extrabold leading-tight text-flame sm:text-2xl">
+                    <dt className="text-xl font-extrabold leading-tight text-flame sm:text-2xl">
                       {h.value}
                     </dt>
-                    <dd className="text-sm leading-snug text-muted">{h.label}</dd>
+                    <dd className="mt-1 text-sm leading-snug text-muted">{h.label}</dd>
                   </div>
                 ))}
               </dl>
