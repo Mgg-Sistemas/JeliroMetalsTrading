@@ -1,0 +1,109 @@
+@import 'tailwindcss';
+
+/* Enable class-based dark mode (toggle .dark on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Brand palette (Jeliro Metals Trading)
+  espresso #351E0E · copper #9E4C01 · gold #FFC700 · flame #FF4F00 · ash #DEDEDE · steel #6D6D6D
+  Semantic surface/ink tokens flip automatically in dark mode.
+*/
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f7f5f2;
+  --bg-elevated: #ffffff;
+  --ink: #1c1410;
+  --ink-soft: #4a4038;
+  --muted: #6d6d6d;
+  --line: #e9e4dd;
+  --card: #ffffff;
+  --ring: rgba(255, 79, 0, 0.35);
+}
+
+.dark {
+  --bg: #160f08;
+  --bg-alt: #1f160d;
+  --bg-elevated: #241a10;
+  --ink: #f5efe8;
+  --ink-soft: #d8ccbf;
+  --muted: #b3a190;
+  --line: #3a2a1b;
+  --card: #1f160d;
+  --ring: rgba(255, 199, 0, 0.35);
+}
+
+@theme inline {
+  /* Semantic tokens (adapt to light/dark) */
+  --color-surface: var(--bg);
+  --color-surface-alt: var(--bg-alt);
+  --color-surface-elevated: var(--bg-elevated);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-card: var(--card);
+
+  /* Fixed brand colors */
+  --color-espresso: #351e0e;
+  --color-copper: #9e4c01;
+  --color-gold: #ffc700;
+  --color-flame: #ff4f00;
+  --color-ash: #dedede;
+  --color-steel: #6d6d6d;
+
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Reusable utility classes for the brand */
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+  .section-y {
+    @apply py-16 sm:py-20 lg:py-28;
+  }
+  .kicker {
+    @apply inline-flex items-center gap-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-flame;
+  }
+  .heading-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-ink;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-flame px-7 py-3.5 text-sm sm:text-base font-semibold text-white shadow-lg shadow-flame/20 transition hover:bg-copper focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)] active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line bg-transparent px-7 py-3.5 text-sm sm:text-base font-semibold text-ink transition hover:border-flame hover:text-flame focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--ring)];
+  }
+  .card-surface {
+    @apply rounded-2xl border border-line bg-card p-6 sm:p-7 transition;
+  }
+}

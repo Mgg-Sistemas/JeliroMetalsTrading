@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/logos/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="description"
+      content="JELIRO Metals Trading FZCO — Dubai-based commodities trader specializing in cassiterite (tin ore), refined tin and non-ferrous metals, connecting reliable mineral supply to global markets."
+    />
+    <meta property="og:title" content="JELIRO Metals Trading FZCO" />
+    <meta
+      property="og:description"
+      content="Global Trading of Tin & Non-Ferrous Metals. Your trusted partner in tin and mineral ores."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/logos/favicon-256.png" />
+    <title>JELIRO Metals Trading FZCO — Global Tin & Non-Ferrous Metals</title>
+    <script>
+      // Avoid FOUC: apply theme before first paint.
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
