@@ -66,35 +66,51 @@ export default function WhatWeTrade() {
   return (
     <section id="trade" className="section-y bg-surface-alt">
       <div className="container-x">
-        <div className="max-w-2xl">
-          <span className="kicker">{t.trade.kicker}</span>
-          <h2 className="heading-2 mt-3">{t.trade.title}</h2>
-          <p className="mt-5 text-base leading-relaxed text-ink-soft sm:text-lg">
-            {t.trade.intro}
-          </p>
-        </div>
+        <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-14 xl:gap-20 lg:items-start">
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:mt-14 lg:grid-cols-4">
-          {t.trade.items.map((item, i) => {
-            const Glyph = glyphs[i % glyphs.length]
-            return (
-              <article
-                key={item.name}
-                className="card-surface group relative flex flex-col shadow-sm transition duration-300 hover:-translate-y-1 hover:border-flame/40 hover:shadow-xl hover:shadow-espresso/5"
-              >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold/15 text-copper ring-1 ring-inset ring-gold/25 transition group-hover:bg-flame/10 group-hover:text-flame dark:text-gold dark:ring-gold/20">
-                  <Glyph className="h-6 w-6" aria-hidden />
-                </span>
+          {/* Left column: intro + 2×2 cards */}
+          <div>
+            <span className="kicker">{t.trade.kicker}</span>
+            <h2 className="heading-2 mt-3">{t.trade.title}</h2>
+            <p className="mt-4 text-base leading-relaxed text-ink-soft">
+              {t.trade.intro}
+            </p>
 
-                <h3 className="mt-5 text-lg font-bold leading-snug text-ink">
-                  {item.name}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  {item.desc}
-                </p>
-              </article>
-            )
-          })}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {t.trade.items.map((item, i) => {
+                const Glyph = glyphs[i % glyphs.length]
+                return (
+                  <article
+                    key={item.name}
+                    className="card-surface group relative flex flex-col shadow-sm transition duration-300 hover:-translate-y-1 hover:border-flame/40 hover:shadow-xl hover:shadow-espresso/5"
+                  >
+                    <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-copper ring-1 ring-inset ring-gold/25 transition group-hover:bg-flame/10 group-hover:text-flame dark:text-gold dark:ring-gold/20">
+                      <Glyph className="h-5 w-5" aria-hidden />
+                    </span>
+                    <h3 className="mt-4 text-base font-bold leading-snug text-ink">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                      {item.desc}
+                    </p>
+                  </article>
+                )
+              })}
+            </div>
+          </div>
+
+          {/* Right column: cassiterite photo */}
+          <div className="mt-14 lg:mt-0 flex items-center justify-center">
+            <div className="w-full overflow-hidden rounded-2xl shadow-2xl shadow-espresso/15 ring-1 ring-espresso/8">
+              <img
+                src="/landing/casiterita-1061x800.jpg"
+                alt="Cassiterite mineral ore"
+                className="h-full w-full object-cover"
+                style={{ maxHeight: '520px' }}
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
