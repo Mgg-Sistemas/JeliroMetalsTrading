@@ -66,7 +66,7 @@ export default function WhatWeTrade() {
   return (
     <section id="trade" className="section-y bg-surface-alt">
       <div className="container-x">
-        <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-14 xl:gap-20 lg:items-start">
+        <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-14 xl:gap-20 lg:items-center">
 
           {/* Left column: intro + 2×2 cards */}
           <div>
